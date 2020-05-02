@@ -1,0 +1,75 @@
+﻿@using Fitments_2.Models.Home;
+@{
+    ViewBag.Title = "CheckoutDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CheckoutDetails</h2>
+@if (Session["cart"] == null)
+{
+    <div class="alert alert-danger">
+        <strong>No Product Added to the cart</strong>
+    </div>
+}
+else
+{
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td align="center" style="font-weight:bolder; text-decoration:underline; font-size:larger;">Product</td>
+                <td align="center" style="font-weight:bolder; text-decoration:underline; font-size:larger;">Price</td>
+                <td align="center" style="font-weight:bolder; text-decoration:underline; font-size:larger;">Quantity</td>
+                <td align="center" style="font-weight:bolder; text-decoration:underline; font-size:larger;">Product Totals</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int total = 0;
+            }
+            @foreach (Item item in (List<Item>)Session["cart"])
+            {
+                int lineTotal = Convert.ToInt32(item.Quantity * item.Product.Price);
+                total = Convert.ToInt32(@total + lineTotal);
+
+                Session["SesTotal"] = total;
+                <tr>
+                    <td align="center">@item.Product.ProductName</td>
+                    <td align="center">@item.Product.Price</td>
+                    <td align="center">@item.Quantity</td>
+                    <td align="center">@lineTotal</td>
+
+                </tr>
+
+            }
+            <tr>
+                <td colspan="3" align="center" style="font-weight:bolder; text-decoration:underline; font-size:larger;">Total : </td>
+
+                <td align="center" style="font-weight:bolder; font-size:larger;">@total</td>
+            </tr>
+        </tbody>
+    </table>
+    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="49ZYHAA6WNFZ4">
+        <table>
+            <tr><td><input type="hidden" name="on0" value="Total">Total</td></tr>
+            <tr>
+                <td>
+                    <select name="os0">
+                        <option value="Option 1">@Session["SesTotal"]</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+    </form>
+
+
+
+    //<a class="btn btn-success" href="@Url.Action("PaymentWithPaypal","Payment")">Payment >></a>
+}
+

@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 alert alert-info">
+                <h3 class="text-center">Login</h3>
+                <form id="loginForm">
+                    <div id="msg"><ul style="color:red;">Invalid Username or Password</ul></div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="email" name="Email" id="logEmail" placeholder="Email" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="password" name="Password" id="logPssword" placeholder="Password" />
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <button class="btn btn-info form-control" type="submit" onclick="Login()"><i class="glyphicon glyphicon-log-in"></i> Login</button>
+                </div>
+                <div class="form-group">
+                    <a style="float:left;cursor:pointer;">Forget Password ?</a><a style="float:right;cursor:pointer;" onclick="SignUp()">Signup</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@*Design Modal with Registration Form*@
+
+<div class="modal fade" id="ShowModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="Close" data-dismiss="modal">&times;</a>
+                <h4>Registration Form</h4>
+                <div id="mesaage1">
+                    <div class="alert alert-success">
+                        <span class="glyphicon glyphicon-ok"></span><strong>Success Message ! </strong><br />
+                        Verification link has been sent to your mail Id Please <b>Verify Email</b> it first ,to proceed further
+                    </div>
+                </div>
+                <div id="mesaage2">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-remove"></span><strong>Error Message ! Registration Failed </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form id="Registration">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name="Username" id="user" placeholder="Username" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="email" name="Email" id="Email" placeholder="Email" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="password" name="Password" id="Password" placeholder="Password" />
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <button class="btn btn-info form-control" type="submit" onclick="SaveForm()"><i class="glyphicon glyphicon-registration-mark"></i>Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function SignUp() {
+        $("#ShowModal").modal();
+        $("#mesaage1").hide();
+        $("#mesaage2").hide();
+    }
+
+    function SaveForm() {
+        var name = $("#user").val();
+        var pwd = $("#Password").val();
+        var email = $("#Email").val();
+
+
+        if (name == "" || pwd == "" || email == "") {
+            $("#mesaage1").hide();
+            $("#mesaage2").show();
+            return false;
+        }
+        var data = $("#Registration").serialize();
+        $.ajax({
+            type: "post",
+            data: data,
+            url: "/Register/SaveData",
+            success: function (result) {
+                $("#mesaage1").show();
+                $("#mesaage2").hide();
+                $("#Registration")[0].reset();
+                
+            }
+        });
+    }
+
+    //Login System
+    $("#msg").hide();
+    function Login(){
+        var data1 = $("#loginForm").serialize();
+        $.ajax({
+            type: "post",
+            data: data1,
+            url: "/Register/CheckValidUser",
+
+            success: function (result) {
+                if (result == "Fail") {
+                    $("#loginForm")[0].reset();
+                    $("#msg").show();
+                }
+                else {
+                    window.location.href = "/Home/Index";
+                    $("#msg").hide();
+                }
+            }
+        });
+    }
+</script>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitments_2", "Fitments_2.csproj", "{A5151253-B57C-4C60-B1D2-DA45BA426BBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5151253-B57C-4C60-B1D2-DA45BA426BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5151253-B57C-4C60-B1D2-DA45BA426BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5151253-B57C-4C60-B1D2-DA45BA426BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5151253-B57C-4C60-B1D2-DA45BA426BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5E4ACD5-F486-42EA-98D6-0BD26515ADC5}
+	EndGlobalSection
+EndGlobal

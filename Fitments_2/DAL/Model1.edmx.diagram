@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f5130513bb7d47618328f1a71e048b74" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_Cart" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_CartStatus" Width="1.5" PointX="14.375" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_Category" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_MemberRole" Width="1.5" PointX="11.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_Members" Width="1.5" PointX="12.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_Roles" Width="1.5" PointX="13.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_ShippingDetails" Width="1.5" PointX="16.125" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_SiteUser" Width="1.5" PointX="7.375" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fitments_2Model.Tbl_SlideImage" Width="1.5" PointX="15.5" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="Fitments_2Model.FK__Tbl_Cart__Produc__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="Fitments_2Model.FK__Tbl_Produ__Categ__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="Fitments_2Model.FK__Tbl_Produ__Categ__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="Fitments_2Model.FK__Tbl_Shipp__Membe__7E37BEF6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

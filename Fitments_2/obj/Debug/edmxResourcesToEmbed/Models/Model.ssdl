@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Fitments_2Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Fitments_2.dbo.SiteUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SiteUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsValid" Type="bit" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Phone Number" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityContainer Name="Fitments_2Model1StoreContainer">
+    <EntitySet Name="SiteUser" EntityType="Self.SiteUser" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SiteUser].[ID] AS [ID], 
+    [SiteUser].[Username] AS [Username], 
+    [SiteUser].[Email] AS [Email], 
+    [SiteUser].[Password] AS [Password], 
+    [SiteUser].[IsValid] AS [IsValid], 
+    [SiteUser].[Address] AS [Address], 
+    [SiteUser].[Phone Number] AS [Phone Number]
+    FROM [dbo].[SiteUser] AS [SiteUser]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
