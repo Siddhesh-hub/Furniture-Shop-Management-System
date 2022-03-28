@@ -1,5 +1,7 @@
 # Furniture-Shop-Management-System
-A Furniture shop management system built using .NET and C#
+A Furniture shop management system built using .NET and C#..
+
+
 Database structure required:
 ![Picture1](https://user-images.githubusercontent.com/61089801/160340515-15b58e12-5b49-4ce0-ad27-1d003da5e915.png)
 
